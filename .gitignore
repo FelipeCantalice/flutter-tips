@@ -3,6 +3,7 @@ android/
 build/
 ios/
 web/
+**/*.g.dart
 
 # Miscellaneous
 **/*.class
