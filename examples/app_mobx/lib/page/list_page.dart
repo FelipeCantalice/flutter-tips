@@ -1,7 +1,6 @@
 import 'package:app_mobx/controllers/list_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:mobx/mobx.dart';
 
 class ListPage extends StatefulWidget {
   ListPage({Key key}) : super(key: key);

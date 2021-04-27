@@ -2,6 +2,8 @@ import 'package:app_mobx/page/counter_page.dart';
 import 'package:app_mobx/page/list_page.dart';
 import 'package:flutter/material.dart';
 
+import 'page/provider_page.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -32,6 +34,8 @@ class Navigation extends StatelessWidget {
 
     void _navigateList() => _navigatePage(ListPage());
 
+    void _navigateProvider() => _navigatePage(ProviderUser());
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -44,6 +48,10 @@ class Navigation extends StatelessWidget {
           TextButton(
             onPressed: _navigateList,
             child: Text("List"),
+          ),
+          TextButton(
+            onPressed: _navigateProvider,
+            child: Text("Mobx and Provider"),
           ),
         ],
       ),
