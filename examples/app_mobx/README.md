@@ -139,9 +139,68 @@ Precisamos adicionar este widget, onde for necessãrio escutar uma <b>mudança d
     ),
 ```
 
+# Injeção com Provider
+
+Para facilitar o acesso e compartilhamento na arvore do componentes no flutter, podemos utilizar o Provider.
+
+##### Criando uma store
+
+```dart
+import 'package:mobx/mobx.dart';
+part 'user_store.g.dart';
+
+class UserStore = _UserStoreBase with _$UserStore;
+
+abstract class _UserStoreBase with Store {
+  @observable
+  String nome = "";
+
+  @action
+  void setUser(String newNome) => nome = newNome;
+}
+```
+
+Precisamos incluir no topo da arvore, o componente de provedor multiplo, incluido com o pacote Provider
+
+```dart
+void main() {
+  runApp(MultiProvider(providers: [
+    Provider<UserStore>(
+      create: (_) => UserStore(),
+    )
+  ], child: MobxApp()));
+}
+```
+
+
+
+Faz com que o componente escute mudançar ocorridas
+
+```dart
+    context.watch<T>()
+    //exemplo
+    context.watch<UserStore>().nome;
+```
+
+Retorna o T sem escutar
+```dart
+    context.read<T>()
+    //exemplo
+    final userStore = context.read<UserStore>();
+```
+
+Faz com que o componente escute somente uma parte de T
+```dart
+    context.select<T, R>(R cb(T value))
+    //exemplo
+```
+
+
+
 
 Referências
 
 https://balta.io/blog/flutter-mobx
 https://medium.com/flutter-comunidade-br/flutter-com-mobx-c0f4762fbd1a
 https://circleci.com/blog/state-management-for-flutter-apps-with-mobx/
+https://itnext.io/flutter-state-management-with-mobx-and-providers-change-app-theme-dynamically-ba3b60619050
