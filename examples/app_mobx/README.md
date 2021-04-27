@@ -28,8 +28,8 @@ Toda vez que uma Action alterar o valor de um Observable, as Reactions na interf
 dependencies:
     flutter:
         sdk: flutter
-    mobx: ^1.0.0
-    flutter_mobx: ^1.0.0
+    mobx: 
+    flutter_mobx: 
 ```
 
 #### Depedencias de desevolvimento
@@ -38,8 +38,21 @@ dependencies:
 dependencies:
     flutter:
         sdk: flutter
-    mobx: ^1.0.0
-    flutter_mobx: ^1.0.0
+
+    build_runner:
+    mobx_codegen:
+```
+
+#### Build runner comandos
+
+gerando arquivos g.dart
+```command
+flutter packages pub run build_runner build
+```
+
+limpando arquivos
+```command
+flutter packages pub run build_runner clean
 ```
 
 #### Estrututa básica de um controller 
