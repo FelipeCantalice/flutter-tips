@@ -19,6 +19,8 @@ dependencies:
   floor:
 
 dev_dependencies:
+  floor_generator:
+  build_runner:
   flutter_test:
     sdk: flutter
 

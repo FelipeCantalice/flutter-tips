@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
+import 'db/database.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp(
+    db: await $FloorAppDatabase.databaseBuilder('app_database.db').build(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({
+    Key? key,
+    required this.db,
+  }) : super(key: key);
+  final AppDatabase db;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
